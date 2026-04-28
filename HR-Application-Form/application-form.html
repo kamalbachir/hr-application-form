@@ -1,0 +1,1174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Graphic Designer Application | Recruitment Portal</title>
+    <meta
+      name="description"
+      content="Submit your application for the Graphic Designer role. Share your experience, skills, and portfolio with our recruitment team."
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%234f46e5'/><path d='M20 44V20h10c6 0 10 4 10 12s-4 12-10 12H20zm6-6h4c3 0 5-2 5-6s-2-6-5-6h-4v12z' fill='white'/></svg>"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      :root {
+        --bg: #f6f7fb;
+        --bg-grad-1: #eef2ff;
+        --bg-grad-2: #f8fafc;
+        --surface: #ffffff;
+        --surface-muted: #f8fafc;
+        --text: #0f172a;
+        --text-muted: #475569;
+        --text-soft: #64748b;
+        --border: #e2e8f0;
+        --border-strong: #cbd5e1;
+        --primary: #4f46e5;
+        --primary-hover: #4338ca;
+        --primary-soft: #eef2ff;
+        --accent: #0ea5e9;
+        --success: #16a34a;
+        --success-soft: #dcfce7;
+        --danger: #dc2626;
+        --danger-soft: #fef2f2;
+        --ring: rgba(79, 70, 229, 0.18);
+        --shadow-sm:
+          0 1px 2px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.06);
+        --shadow-md:
+          0 4px 12px rgba(15, 23, 42, 0.06), 0 2px 4px rgba(15, 23, 42, 0.04);
+        --shadow-lg:
+          0 24px 48px -16px rgba(15, 23, 42, 0.18),
+          0 8px 24px -8px rgba(15, 23, 42, 0.08);
+        --radius-sm: 8px;
+        --radius-md: 12px;
+        --radius-lg: 18px;
+        --radius-xl: 24px;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family:
+          "Inter",
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body {
+        background:
+          radial-gradient(
+            1200px 600px at 80% -10%,
+            rgba(79, 70, 229, 0.1),
+            transparent 60%
+          ),
+          radial-gradient(
+            900px 500px at -10% 10%,
+            rgba(14, 165, 233, 0.08),
+            transparent 60%
+          ),
+          linear-gradient(
+            180deg,
+            var(--bg-grad-1) 0%,
+            var(--bg-grad-2) 30%,
+            var(--bg) 100%
+          );
+        min-height: 100vh;
+      }
+
+      .page {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 28px 24px 48px;
+      }
+
+      /* Top bar */
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 48px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+        font-weight: 700;
+        color: var(--text);
+        letter-spacing: -0.01em;
+      }
+      .brand-mark {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, var(--primary), #6366f1);
+        display: grid;
+        place-items: center;
+        color: #fff;
+        font-weight: 800;
+        box-shadow: 0 6px 16px rgba(79, 70, 229, 0.35);
+      }
+      .brand-name {
+        font-size: 16px;
+      }
+      .brand-sub {
+        font-size: 12px;
+        color: var(--text-soft);
+        font-weight: 500;
+        margin-top: 2px;
+      }
+      .topbar-meta {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 14px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        font-size: 13px;
+        color: var(--text-muted);
+        box-shadow: var(--shadow-sm);
+      }
+      .pulse {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--success);
+        box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.6);
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.5);
+        }
+        70% {
+          box-shadow: 0 0 0 8px rgba(22, 163, 74, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(22, 163, 74, 0);
+        }
+      }
+
+      /* Hero */
+      .hero {
+        margin-bottom: 36px;
+      }
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 12px;
+        background: var(--primary-soft);
+        color: var(--primary);
+        font-weight: 600;
+        font-size: 12px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        border-radius: 999px;
+        margin-bottom: 18px;
+      }
+      .hero h1 {
+        font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+        font-size: clamp(32px, 4.4vw, 48px);
+        line-height: 1.1;
+        font-weight: 800;
+        letter-spacing: -0.025em;
+        margin: 0 0 16px;
+        color: var(--text);
+      }
+      .hero h1 .accent {
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .hero p {
+        font-size: 17px;
+        color: var(--text-muted);
+        max-width: 720px;
+        margin: 0;
+        line-height: 1.65;
+      }
+
+      /* Layout */
+      .grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 360px;
+        gap: 28px;
+        align-items: start;
+      }
+
+      /* Card */
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-lg);
+      }
+      .card-header {
+        padding: 28px 32px 0;
+      }
+      .card-title {
+        font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        margin: 0 0 6px;
+        letter-spacing: -0.015em;
+      }
+      .card-subtitle {
+        font-size: 14px;
+        color: var(--text-soft);
+        margin: 0 0 24px;
+      }
+
+      /* Form */
+      form {
+        padding: 8px 32px 32px;
+      }
+      .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .field {
+        margin-bottom: 18px;
+        display: flex;
+        flex-direction: column;
+      }
+      .field-label {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .field-label .req {
+        color: var(--danger);
+        font-weight: 700;
+      }
+      .input,
+      .textarea {
+        width: 100%;
+        font-family: inherit;
+        font-size: 15px;
+        color: var(--text);
+        background: var(--surface);
+        border: 1px solid var(--border-strong);
+        border-radius: var(--radius-md);
+        padding: 12px 14px;
+        transition:
+          border-color 0.18s ease,
+          box-shadow 0.18s ease,
+          background-color 0.18s ease;
+        outline: none;
+        appearance: none;
+      }
+      .input::placeholder,
+      .textarea::placeholder {
+        color: #94a3b8;
+      }
+      .input:hover,
+      .textarea:hover {
+        border-color: #94a3b8;
+      }
+      .input:focus,
+      .textarea:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 4px var(--ring);
+        background: #fff;
+      }
+      .textarea {
+        min-height: 120px;
+        resize: vertical;
+        line-height: 1.55;
+      }
+
+      /* Validation styles */
+      .field.invalid .input,
+      .field.invalid .textarea {
+        border-color: var(--danger);
+        background: var(--danger-soft);
+      }
+      .field.invalid .input:focus,
+      .field.invalid .textarea:focus {
+        box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.15);
+      }
+      .field-error {
+        display: none;
+        margin-top: 6px;
+        font-size: 12.5px;
+        color: var(--danger);
+        font-weight: 500;
+      }
+      .field.invalid .field-error {
+        display: block;
+      }
+
+      .form-hint {
+        margin-top: 6px;
+        font-size: 12px;
+        color: var(--text-soft);
+      }
+
+      /* Submit */
+      .submit-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 8px;
+        flex-wrap: wrap;
+      }
+      .legal {
+        font-size: 12px;
+        color: var(--text-soft);
+        max-width: 360px;
+      }
+      .btn {
+        appearance: none;
+        border: 1px solid transparent;
+        cursor: pointer;
+        font-family: inherit;
+        font-weight: 600;
+        font-size: 15px;
+        padding: 13px 22px;
+        border-radius: var(--radius-md);
+        transition:
+          transform 0.06s ease,
+          background-color 0.18s ease,
+          box-shadow 0.18s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      .btn-primary {
+        background: var(--primary);
+        color: #fff;
+        box-shadow: 0 8px 18px rgba(79, 70, 229, 0.3);
+      }
+      .btn-primary:hover:not(:disabled) {
+        background: var(--primary-hover);
+        box-shadow: 0 10px 22px rgba(79, 70, 229, 0.38);
+      }
+      .btn-primary:active:not(:disabled) {
+        transform: translateY(1px);
+        box-shadow: 0 6px 14px rgba(79, 70, 229, 0.28);
+      }
+      .btn-primary:focus-visible {
+        outline: none;
+        box-shadow:
+          0 0 0 4px var(--ring),
+          0 8px 18px rgba(79, 70, 229, 0.3);
+      }
+      .btn:disabled {
+        cursor: not-allowed;
+        opacity: 0.85;
+      }
+      .spinner {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        border-top-color: #fff;
+        animation: spin 0.7s linear infinite;
+        display: none;
+      }
+      .btn.loading .spinner {
+        display: inline-block;
+      }
+      .btn.loading .btn-label-default {
+        display: none;
+      }
+      .btn-label-loading {
+        display: none;
+      }
+      .btn.loading .btn-label-loading {
+        display: inline;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Sidebar */
+      .sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .side-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-xl);
+        padding: 24px;
+        box-shadow: var(--shadow-md);
+      }
+      .side-card-title {
+        font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        margin: 0 0 4px;
+        letter-spacing: -0.01em;
+      }
+      .side-card-sub {
+        font-size: 13px;
+        color: var(--text-soft);
+        margin: 0 0 18px;
+      }
+      .steps {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .step {
+        position: relative;
+        display: flex;
+        gap: 14px;
+        padding: 12px 0;
+      }
+      .step:not(:last-child)::before {
+        content: "";
+        position: absolute;
+        left: 15px;
+        top: 38px;
+        bottom: -6px;
+        width: 2px;
+        background: linear-gradient(to bottom, var(--border), transparent);
+      }
+      .step-num {
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: var(--primary-soft);
+        color: var(--primary);
+        font-weight: 700;
+        font-size: 13px;
+        display: grid;
+        place-items: center;
+        border: 1px solid #e0e7ff;
+      }
+      .step-body {
+        padding-top: 4px;
+      }
+      .step-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text);
+        margin: 0 0 2px;
+      }
+      .step-desc {
+        font-size: 12.5px;
+        color: var(--text-soft);
+        margin: 0;
+        line-height: 1.5;
+      }
+
+      .perks {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .perk {
+        display: flex;
+        gap: 12px;
+        padding: 10px 0;
+        font-size: 13.5px;
+        color: var(--text-muted);
+        align-items: flex-start;
+      }
+      .perk-icon {
+        flex-shrink: 0;
+        width: 22px;
+        height: 22px;
+        border-radius: 6px;
+        background: #ecfdf5;
+        color: var(--success);
+        display: grid;
+        place-items: center;
+      }
+
+      /* Success state */
+      .success {
+        display: none;
+        padding: 48px 32px;
+        text-align: center;
+      }
+      .success.visible {
+        display: block;
+      }
+      .success-icon {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: var(--success-soft);
+        color: var(--success);
+        display: grid;
+        place-items: center;
+        margin: 0 auto 22px;
+        animation: pop 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.4);
+      }
+      @keyframes pop {
+        0% {
+          transform: scale(0.6);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      .success h2 {
+        font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+        font-size: 24px;
+        margin: 0 0 10px;
+        letter-spacing: -0.02em;
+      }
+      .success p {
+        color: var(--text-muted);
+        margin: 0 auto 22px;
+        max-width: 440px;
+      }
+      .btn-ghost {
+        background: var(--surface-muted);
+        color: var(--text);
+        border: 1px solid var(--border);
+      }
+      .btn-ghost:hover {
+        background: #eef2f7;
+      }
+
+      /* Footer */
+      .footer {
+        margin-top: 56px;
+        padding-top: 24px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        font-size: 13px;
+        color: var(--text-soft);
+        flex-wrap: wrap;
+      }
+      .footer-brand {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+        color: var(--text-muted);
+      }
+
+      /* Hide iframe used as submit target */
+      .hidden-frame {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border: 0;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      /* Responsive */
+      @media (max-width: 960px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        .sidebar {
+          order: -1;
+        }
+      }
+      @media (max-width: 640px) {
+        .page {
+          padding: 20px 16px 36px;
+        }
+        .topbar {
+          margin-bottom: 32px;
+        }
+        .row {
+          grid-template-columns: 1fr;
+          gap: 0;
+        }
+        .card-header {
+          padding: 22px 22px 0;
+        }
+        form {
+          padding: 8px 22px 24px;
+        }
+        .side-card {
+          padding: 20px;
+        }
+        .submit-row {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .btn-primary {
+          width: 100%;
+        }
+        .legal {
+          max-width: none;
+        }
+        .footer {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <!-- Top bar -->
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark">R</div>
+          <div>
+            <div class="brand-name">Recruitment Portal</div>
+            <div class="brand-sub">Talent Applications</div>
+          </div>
+        </div>
+        <div class="topbar-meta" aria-label="Position status">
+          <span class="pulse" aria-hidden="true"></span>
+          <span>Now accepting applications</span>
+        </div>
+      </header>
+
+      <!-- Hero -->
+      <section class="hero">
+        <span class="hero-eyebrow">Open Role &middot; Design</span>
+        <h1>Graphic Designer <span class="accent">Application</span></h1>
+        <p>
+          Submit your application for the Graphic Designer role. Please provide
+          accurate contact details, relevant design experience, key skills, and
+          a valid portfolio link.
+        </p>
+      </section>
+
+      <!-- Main grid -->
+      <div class="grid">
+        <!-- Form card -->
+        <main class="card" id="formCard">
+          <div id="formContent">
+            <div class="card-header">
+              <h2 class="card-title">Apply for this role</h2>
+              <p class="card-subtitle">
+                It takes about 3 minutes. All fields are required.
+              </p>
+            </div>
+
+            <form
+              id="applicationForm"
+              action="https://n8n.srv1619357.hstgr.cloud/webhook/graphic-designer-application"
+              method="POST"
+              target="submission_target"
+              novalidate
+            >
+              <div class="row">
+                <div class="field">
+                  <label class="field-label" for="fullName">
+                    Full Name <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <input
+                    class="input"
+                    id="fullName"
+                    name="Full Name"
+                    type="text"
+                    autocomplete="name"
+                    placeholder="Enter your full name"
+                    required
+                  />
+                  <div class="field-error">Please enter your full name.</div>
+                </div>
+
+                <div class="field">
+                  <label class="field-label" for="email">
+                    Email <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <input
+                    class="input"
+                    id="email"
+                    name="Email"
+                    type="email"
+                    autocomplete="email"
+                    placeholder="you@example.com"
+                    required
+                  />
+                  <div class="field-error">
+                    Please enter a valid email address.
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="field">
+                  <label class="field-label" for="phone">
+                    Phone <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <input
+                    class="input"
+                    id="phone"
+                    name="Phone"
+                    type="tel"
+                    autocomplete="tel"
+                    placeholder="+000 000 000 000"
+                    required
+                  />
+                  <div class="field-error">
+                    Please enter a valid phone number.
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="field-label" for="experience">
+                    Experience (Years)
+                    <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <input
+                    class="input"
+                    id="experience"
+                    name="Experience | Years"
+                    type="number"
+                    min="0"
+                    max="60"
+                    step="0.5"
+                    placeholder="e.g. 3.5"
+                    required
+                  />
+                  <div class="field-error">Enter a value between 0 and 60.</div>
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="field-label" for="skills">
+                  Skills <span class="req" aria-hidden="true">*</span>
+                </label>
+                <textarea
+                  class="textarea"
+                  id="skills"
+                  name="Skills"
+                  placeholder="Tell us about your core skills, tools, and design specialties."
+                  required
+                ></textarea>
+                <div class="field-error">
+                  Please share a few of your key skills.
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="field-label" for="portfolio">
+                  Portfolio URI <span class="req" aria-hidden="true">*</span>
+                </label>
+                <input
+                  class="input"
+                  id="portfolio"
+                  name="Portfolio URI"
+                  type="url"
+                  inputmode="url"
+                  placeholder="https://your-portfolio.com"
+                  required
+                />
+                <div class="field-error">
+                  Please enter a valid portfolio link (including https://).
+                </div>
+              </div>
+
+              <div class="submit-row">
+                <p class="legal">
+                  By submitting, you agree to be contacted regarding this
+                  opportunity. Your information will be handled confidentially.
+                </p>
+                <button class="btn btn-primary" type="submit" id="submitBtn">
+                  <span class="spinner" aria-hidden="true"></span>
+                  <span class="btn-label-default">Submit application</span>
+                  <span class="btn-label-loading">Submitting&hellip;</span>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Success state -->
+          <div
+            class="success"
+            id="successPanel"
+            role="status"
+            aria-live="polite"
+          >
+            <div class="success-icon" aria-hidden="true">
+              <svg
+                width="34"
+                height="34"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <h2>Application received</h2>
+            <p>Thank you. Your application has been submitted successfully.</p>
+            <button class="btn btn-ghost" type="button" id="resetBtn">
+              Submit another application
+            </button>
+          </div>
+        </main>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <section class="side-card">
+            <h3 class="side-card-title">Application process</h3>
+            <p class="side-card-sub">Here is what happens after you apply.</p>
+            <ol class="steps">
+              <li class="step">
+                <div class="step-num">1</div>
+                <div class="step-body">
+                  <p class="step-title">Submit your details</p>
+                  <p class="step-desc">
+                    Fill out this short form with your contact info and
+                    portfolio link.
+                  </p>
+                </div>
+              </li>
+              <li class="step">
+                <div class="step-num">2</div>
+                <div class="step-body">
+                  <p class="step-title">Portfolio review</p>
+                  <p class="step-desc">
+                    Our team carefully reviews your work and design experience.
+                  </p>
+                </div>
+              </li>
+              <li class="step">
+                <div class="step-num">3</div>
+                <div class="step-body">
+                  <p class="step-title">Client decision</p>
+                  <p class="step-desc">
+                    Selected portfolios are forwarded to the hiring client for
+                    review.
+                  </p>
+                </div>
+              </li>
+              <li class="step">
+                <div class="step-num">4</div>
+                <div class="step-body">
+                  <p class="step-title">Interview invitation</p>
+                  <p class="step-desc">
+                    Shortlisted applicants are invited to an interview.
+                  </p>
+                </div>
+              </li>
+            </ol>
+          </section>
+
+          <section class="side-card">
+            <h3 class="side-card-title">What we look for</h3>
+            <p class="side-card-sub">
+              Strong applications usually share these traits.
+            </p>
+            <ul class="perks">
+              <li class="perk">
+                <span class="perk-icon" aria-hidden="true">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </span>
+                A polished portfolio with recent, relevant work
+              </li>
+              <li class="perk">
+                <span class="perk-icon" aria-hidden="true">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </span>
+                Strong typography, layout, and visual hierarchy
+              </li>
+              <li class="perk">
+                <span class="perk-icon" aria-hidden="true">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </span>
+                Clear thinking about brand, audience, and goals
+              </li>
+              <li class="perk">
+                <span class="perk-icon" aria-hidden="true">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </span>
+                Reliable communication and craft
+              </li>
+            </ul>
+          </section>
+        </aside>
+      </div>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-brand">
+          <div
+            class="brand-mark"
+            style="
+              width: 24px;
+              height: 24px;
+              border-radius: 7px;
+              font-size: 12px;
+            "
+          >
+            R
+          </div>
+          <span>Recruitment Application Portal</span>
+        </div>
+        <div>&copy; <span id="year"></span> All rights reserved.</div>
+      </footer>
+    </div>
+
+    <!-- Hidden iframe used as form submission target so the user stays on the page -->
+    <iframe
+      class="hidden-frame"
+      name="submission_target"
+      id="submission_target"
+      tabindex="-1"
+      aria-hidden="true"
+    ></iframe>
+
+    <script>
+      (function () {
+        var form = document.getElementById("applicationForm");
+        var submitBtn = document.getElementById("submitBtn");
+        var formContent = document.getElementById("formContent");
+        var successPanel = document.getElementById("successPanel");
+        var resetBtn = document.getElementById("resetBtn");
+        var iframe = document.getElementById("submission_target");
+        var yearEl = document.getElementById("year");
+
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+        var isSubmitting = false;
+        var submitTimeout = null;
+
+        function setFieldValidity(input, valid, customMessage) {
+          var field = input.closest(".field");
+          if (!field) return;
+          if (valid) {
+            field.classList.remove("invalid");
+          } else {
+            field.classList.add("invalid");
+            if (customMessage) {
+              var err = field.querySelector(".field-error");
+              if (err) err.textContent = customMessage;
+            }
+          }
+        }
+
+        function validateField(input) {
+          var value = (input.value || "").trim();
+
+          if (!value) {
+            setFieldValidity(input, false);
+            return false;
+          }
+
+          if (input.type === "email") {
+            var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+            if (!emailRe.test(value)) {
+              setFieldValidity(input, false);
+              return false;
+            }
+          }
+
+          if (input.type === "url") {
+            try {
+              var u = new URL(value);
+              if (!/^https?:$/.test(u.protocol)) {
+                setFieldValidity(input, false);
+                return false;
+              }
+            } catch (e) {
+              setFieldValidity(input, false);
+              return false;
+            }
+          }
+
+          if (input.type === "number") {
+            var num = parseFloat(value);
+            var min = input.min !== "" ? parseFloat(input.min) : -Infinity;
+            var max = input.max !== "" ? parseFloat(input.max) : Infinity;
+            if (Number.isNaN(num) || num < min || num > max) {
+              setFieldValidity(input, false);
+              return false;
+            }
+          }
+
+          if (input.type === "tel") {
+            var digits = value.replace(/\D/g, "");
+            if (digits.length < 6) {
+              setFieldValidity(input, false);
+              return false;
+            }
+          }
+
+          setFieldValidity(input, true);
+          return true;
+        }
+
+        function validateAll() {
+          var inputs = form.querySelectorAll("input, textarea");
+          var ok = true;
+          inputs.forEach(function (input) {
+            if (!validateField(input)) ok = false;
+          });
+          return ok;
+        }
+
+        // Live validation: clear errors as user types
+        form.querySelectorAll("input, textarea").forEach(function (input) {
+          input.addEventListener("blur", function () {
+            if ((input.value || "").trim() !== "") validateField(input);
+          });
+          input.addEventListener("input", function () {
+            var field = input.closest(".field");
+            if (field && field.classList.contains("invalid")) {
+              validateField(input);
+            }
+          });
+        });
+
+        function showSuccess() {
+          formContent.style.display = "none";
+          successPanel.classList.add("visible");
+          successPanel.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+
+        function resetSubmittingState() {
+          isSubmitting = false;
+          submitBtn.classList.remove("loading");
+          submitBtn.disabled = false;
+          if (submitTimeout) {
+            clearTimeout(submitTimeout);
+            submitTimeout = null;
+          }
+        }
+
+        // The hidden iframe loads once on page init; subsequent loads occur after form submit
+        var iframeReady = false;
+        iframe.addEventListener("load", function () {
+          if (!iframeReady) {
+            iframeReady = true;
+            return;
+          }
+          if (isSubmitting) {
+            resetSubmittingState();
+            showSuccess();
+          }
+        });
+
+        form.addEventListener("submit", function (e) {
+          if (isSubmitting) {
+            e.preventDefault();
+            return;
+          }
+
+          if (!validateAll()) {
+            e.preventDefault();
+            var firstInvalid = form.querySelector(
+              ".field.invalid input, .field.invalid textarea",
+            );
+            if (firstInvalid) firstInvalid.focus();
+            return;
+          }
+
+          // Allow native submission to the hidden iframe target.
+          isSubmitting = true;
+          submitBtn.classList.add("loading");
+          submitBtn.disabled = true;
+
+          // Safety net: in case the iframe load event does not fire
+          // (very long network), still complete the flow after a timeout.
+          submitTimeout = setTimeout(function () {
+            if (isSubmitting) {
+              resetSubmittingState();
+              showSuccess();
+            }
+          }, 8000);
+        });
+
+        resetBtn.addEventListener("click", function () {
+          form.reset();
+          form.querySelectorAll(".field.invalid").forEach(function (f) {
+            f.classList.remove("invalid");
+          });
+          successPanel.classList.remove("visible");
+          formContent.style.display = "";
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      })();
+    </script>
+  </body>
+</html>
