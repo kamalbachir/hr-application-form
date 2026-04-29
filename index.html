@@ -6,7 +6,7 @@
     <title>Graphic Designer Application | Recruitment Portal</title>
     <meta
       name="description"
-      content="Submit your application for the Graphic Designer role. Share your experience, skills, and portfolio with our recruitment team."
+      content="Submit your application for the Graphic Designer role. Share your experience, skills, and optional portfolio with our recruitment team."
     />
     <link
       rel="icon"
@@ -19,6 +19,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
+
     <style>
       *,
       *::before,
@@ -53,9 +54,7 @@
         --shadow-lg:
           0 24px 48px -16px rgba(15, 23, 42, 0.18),
           0 8px 24px -8px rgba(15, 23, 42, 0.08);
-        --radius-sm: 8px;
         --radius-md: 12px;
-        --radius-lg: 18px;
         --radius-xl: 24px;
       }
 
@@ -105,13 +104,13 @@
         padding: 28px 24px 48px;
       }
 
-      /* Top bar */
       .topbar {
         display: flex;
         align-items: center;
         justify-content: space-between;
         margin-bottom: 48px;
       }
+
       .brand {
         display: flex;
         align-items: center;
@@ -121,6 +120,7 @@
         color: var(--text);
         letter-spacing: -0.01em;
       }
+
       .brand-mark {
         width: 36px;
         height: 36px;
@@ -132,15 +132,18 @@
         font-weight: 800;
         box-shadow: 0 6px 16px rgba(79, 70, 229, 0.35);
       }
+
       .brand-name {
         font-size: 16px;
       }
+
       .brand-sub {
         font-size: 12px;
         color: var(--text-soft);
         font-weight: 500;
         margin-top: 2px;
       }
+
       .topbar-meta {
         display: inline-flex;
         align-items: center;
@@ -153,6 +156,7 @@
         color: var(--text-muted);
         box-shadow: var(--shadow-sm);
       }
+
       .pulse {
         width: 8px;
         height: 8px;
@@ -161,6 +165,7 @@
         box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.6);
         animation: pulse 2s infinite;
       }
+
       @keyframes pulse {
         0% {
           box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.5);
@@ -173,10 +178,10 @@
         }
       }
 
-      /* Hero */
       .hero {
         margin-bottom: 36px;
       }
+
       .hero-eyebrow {
         display: inline-flex;
         align-items: center;
@@ -191,6 +196,7 @@
         border-radius: 999px;
         margin-bottom: 18px;
       }
+
       .hero h1 {
         font-family: "Plus Jakarta Sans", "Inter", sans-serif;
         font-size: clamp(32px, 4.4vw, 48px);
@@ -200,12 +206,14 @@
         margin: 0 0 16px;
         color: var(--text);
       }
+
       .hero h1 .accent {
         background: linear-gradient(135deg, var(--primary), var(--accent));
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
       }
+
       .hero p {
         font-size: 17px;
         color: var(--text-muted);
@@ -214,7 +222,6 @@
         line-height: 1.65;
       }
 
-      /* Layout */
       .grid {
         display: grid;
         grid-template-columns: minmax(0, 1fr) 360px;
@@ -222,16 +229,17 @@
         align-items: start;
       }
 
-      /* Card */
       .card {
         background: var(--surface);
         border: 1px solid var(--border);
         border-radius: var(--radius-xl);
         box-shadow: var(--shadow-lg);
       }
+
       .card-header {
         padding: 28px 32px 0;
       }
+
       .card-title {
         font-family: "Plus Jakarta Sans", "Inter", sans-serif;
         font-size: 22px;
@@ -239,26 +247,29 @@
         margin: 0 0 6px;
         letter-spacing: -0.015em;
       }
+
       .card-subtitle {
         font-size: 14px;
         color: var(--text-soft);
         margin: 0 0 24px;
       }
 
-      /* Form */
       form {
         padding: 8px 32px 32px;
       }
+
       .row {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 16px;
       }
+
       .field {
         margin-bottom: 18px;
         display: flex;
         flex-direction: column;
       }
+
       .field-label {
         font-size: 13px;
         font-weight: 600;
@@ -268,10 +279,17 @@
         align-items: center;
         gap: 6px;
       }
+
       .field-label .req {
         color: var(--danger);
         font-weight: 700;
       }
+
+      .optional-tag {
+        color: var(--text-soft);
+        font-weight: 500;
+      }
+
       .input,
       .textarea {
         width: 100%;
@@ -289,36 +307,41 @@
         outline: none;
         appearance: none;
       }
+
       .input::placeholder,
       .textarea::placeholder {
         color: #94a3b8;
       }
+
       .input:hover,
       .textarea:hover {
         border-color: #94a3b8;
       }
+
       .input:focus,
       .textarea:focus {
         border-color: var(--primary);
         box-shadow: 0 0 0 4px var(--ring);
         background: #fff;
       }
+
       .textarea {
         min-height: 120px;
         resize: vertical;
         line-height: 1.55;
       }
 
-      /* Validation styles */
       .field.invalid .input,
       .field.invalid .textarea {
         border-color: var(--danger);
         background: var(--danger-soft);
       }
+
       .field.invalid .input:focus,
       .field.invalid .textarea:focus {
         box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.15);
       }
+
       .field-error {
         display: none;
         margin-top: 6px;
@@ -326,6 +349,7 @@
         color: var(--danger);
         font-weight: 500;
       }
+
       .field.invalid .field-error {
         display: block;
       }
@@ -336,7 +360,6 @@
         color: var(--text-soft);
       }
 
-      /* Submit */
       .submit-row {
         display: flex;
         align-items: center;
@@ -345,11 +368,13 @@
         margin-top: 8px;
         flex-wrap: wrap;
       }
+
       .legal {
         font-size: 12px;
         color: var(--text-soft);
         max-width: 360px;
       }
+
       .btn {
         appearance: none;
         border: 1px solid transparent;
@@ -368,29 +393,35 @@
         justify-content: center;
         gap: 10px;
       }
+
       .btn-primary {
         background: var(--primary);
         color: #fff;
         box-shadow: 0 8px 18px rgba(79, 70, 229, 0.3);
       }
+
       .btn-primary:hover:not(:disabled) {
         background: var(--primary-hover);
         box-shadow: 0 10px 22px rgba(79, 70, 229, 0.38);
       }
+
       .btn-primary:active:not(:disabled) {
         transform: translateY(1px);
         box-shadow: 0 6px 14px rgba(79, 70, 229, 0.28);
       }
+
       .btn-primary:focus-visible {
         outline: none;
         box-shadow:
           0 0 0 4px var(--ring),
           0 8px 18px rgba(79, 70, 229, 0.3);
       }
+
       .btn:disabled {
         cursor: not-allowed;
         opacity: 0.85;
       }
+
       .spinner {
         width: 16px;
         height: 16px;
@@ -400,15 +431,19 @@
         animation: spin 0.7s linear infinite;
         display: none;
       }
+
       .btn.loading .spinner {
         display: inline-block;
       }
+
       .btn.loading .btn-label-default {
         display: none;
       }
+
       .btn-label-loading {
         display: none;
       }
+
       .btn.loading .btn-label-loading {
         display: inline;
       }
@@ -419,12 +454,12 @@
         }
       }
 
-      /* Sidebar */
       .sidebar {
         display: flex;
         flex-direction: column;
         gap: 20px;
       }
+
       .side-card {
         background: var(--surface);
         border: 1px solid var(--border);
@@ -432,6 +467,7 @@
         padding: 24px;
         box-shadow: var(--shadow-md);
       }
+
       .side-card-title {
         font-family: "Plus Jakarta Sans", "Inter", sans-serif;
         font-size: 16px;
@@ -439,22 +475,26 @@
         margin: 0 0 4px;
         letter-spacing: -0.01em;
       }
+
       .side-card-sub {
         font-size: 13px;
         color: var(--text-soft);
         margin: 0 0 18px;
       }
+
       .steps {
         list-style: none;
         padding: 0;
         margin: 0;
       }
+
       .step {
         position: relative;
         display: flex;
         gap: 14px;
         padding: 12px 0;
       }
+
       .step:not(:last-child)::before {
         content: "";
         position: absolute;
@@ -464,6 +504,7 @@
         width: 2px;
         background: linear-gradient(to bottom, var(--border), transparent);
       }
+
       .step-num {
         flex-shrink: 0;
         width: 32px;
@@ -477,15 +518,18 @@
         place-items: center;
         border: 1px solid #e0e7ff;
       }
+
       .step-body {
         padding-top: 4px;
       }
+
       .step-title {
         font-size: 14px;
         font-weight: 600;
         color: var(--text);
         margin: 0 0 2px;
       }
+
       .step-desc {
         font-size: 12.5px;
         color: var(--text-soft);
@@ -498,6 +542,7 @@
         padding: 0;
         margin: 0;
       }
+
       .perk {
         display: flex;
         gap: 12px;
@@ -506,6 +551,7 @@
         color: var(--text-muted);
         align-items: flex-start;
       }
+
       .perk-icon {
         flex-shrink: 0;
         width: 22px;
@@ -517,15 +563,16 @@
         place-items: center;
       }
 
-      /* Success state */
       .success {
         display: none;
         padding: 48px 32px;
         text-align: center;
       }
+
       .success.visible {
         display: block;
       }
+
       .success-icon {
         width: 72px;
         height: 72px;
@@ -537,6 +584,7 @@
         margin: 0 auto 22px;
         animation: pop 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.4);
       }
+
       @keyframes pop {
         0% {
           transform: scale(0.6);
@@ -547,27 +595,30 @@
           opacity: 1;
         }
       }
+
       .success h2 {
         font-family: "Plus Jakarta Sans", "Inter", sans-serif;
         font-size: 24px;
         margin: 0 0 10px;
         letter-spacing: -0.02em;
       }
+
       .success p {
         color: var(--text-muted);
         margin: 0 auto 22px;
         max-width: 440px;
       }
+
       .btn-ghost {
         background: var(--surface-muted);
         color: var(--text);
         border: 1px solid var(--border);
       }
+
       .btn-ghost:hover {
         background: #eef2f7;
       }
 
-      /* Footer */
       .footer {
         margin-top: 56px;
         padding-top: 24px;
@@ -580,6 +631,7 @@
         color: var(--text-soft);
         flex-wrap: wrap;
       }
+
       .footer-brand {
         display: flex;
         align-items: center;
@@ -588,7 +640,6 @@
         color: var(--text-muted);
       }
 
-      /* Hide iframe used as submit target */
       .hidden-frame {
         position: absolute;
         width: 0;
@@ -598,45 +649,55 @@
         pointer-events: none;
       }
 
-      /* Responsive */
       @media (max-width: 960px) {
         .grid {
           grid-template-columns: 1fr;
         }
+
         .sidebar {
           order: -1;
         }
       }
+
       @media (max-width: 640px) {
         .page {
           padding: 20px 16px 36px;
         }
+
         .topbar {
           margin-bottom: 32px;
         }
+
         .row {
           grid-template-columns: 1fr;
           gap: 0;
         }
+
         .card-header {
           padding: 22px 22px 0;
         }
+
         form {
           padding: 8px 22px 24px;
         }
+
         .side-card {
           padding: 20px;
         }
+
         .submit-row {
           flex-direction: column;
           align-items: stretch;
         }
+
         .btn-primary {
           width: 100%;
         }
+
         .legal {
           max-width: none;
         }
+
         .footer {
           flex-direction: column;
           align-items: flex-start;
@@ -644,9 +705,9 @@
       }
     </style>
   </head>
+
   <body>
     <div class="page">
-      <!-- Top bar -->
       <header class="topbar">
         <div class="brand">
           <div class="brand-mark">R</div>
@@ -661,26 +722,23 @@
         </div>
       </header>
 
-      <!-- Hero -->
       <section class="hero">
         <span class="hero-eyebrow">Open Role &middot; Design</span>
         <h1>Graphic Designer <span class="accent">Application</span></h1>
         <p>
           Submit your application for the Graphic Designer role. Please provide
           accurate contact details, relevant design experience, key skills, and
-          a valid portfolio link.
+          optional portfolio or work sample links.
         </p>
       </section>
 
-      <!-- Main grid -->
       <div class="grid">
-        <!-- Form card -->
         <main class="card" id="formCard">
           <div id="formContent">
             <div class="card-header">
               <h2 class="card-title">Apply for this role</h2>
               <p class="card-subtitle">
-                It takes about 3 minutes. All fields are required.
+                It takes about 3 minutes. Portfolio is optional but recommended.
               </p>
             </div>
 
@@ -784,19 +842,24 @@
 
               <div class="field">
                 <label class="field-label" for="portfolio">
-                  Portfolio URI <span class="req" aria-hidden="true">*</span>
+                  Portfolio / Work Samples
+                  <span class="optional-tag">Optional</span>
                 </label>
                 <input
                   class="input"
                   id="portfolio"
                   name="Portfolio URI"
-                  type="url"
+                  type="text"
                   inputmode="url"
-                  placeholder="https://your-portfolio.com"
-                  required
+                  placeholder="www.your-portfolio.com or behance.net/your-profile"
                 />
+                <div class="form-hint">
+                  Optional: You can share Behance, Dribbble, a personal website,
+                  or any portfolio/work sample link. You do not need to include
+                  https://.
+                </div>
                 <div class="field-error">
-                  Please enter a valid portfolio link (including https://).
+                  Please enter a valid portfolio link or leave this field empty.
                 </div>
               </div>
 
@@ -814,7 +877,6 @@
             </form>
           </div>
 
-          <!-- Success state -->
           <div
             class="success"
             id="successPanel"
@@ -843,7 +905,6 @@
           </div>
         </main>
 
-        <!-- Sidebar -->
         <aside class="sidebar">
           <section class="side-card">
             <h3 class="side-card-title">Application process</h3>
@@ -854,17 +915,18 @@
                 <div class="step-body">
                   <p class="step-title">Submit your details</p>
                   <p class="step-desc">
-                    Fill out this short form with your contact info and
-                    portfolio link.
+                    Fill out this short form with your contact info, experience,
+                    skills, and optional work samples.
                   </p>
                 </div>
               </li>
               <li class="step">
                 <div class="step-num">2</div>
                 <div class="step-body">
-                  <p class="step-title">Portfolio review</p>
+                  <p class="step-title">Application review</p>
                   <p class="step-desc">
-                    Our team carefully reviews your work and design experience.
+                    Your skills, experience, and submitted information are
+                    reviewed for role fit.
                   </p>
                 </div>
               </li>
@@ -873,8 +935,8 @@
                 <div class="step-body">
                   <p class="step-title">Client decision</p>
                   <p class="step-desc">
-                    Selected portfolios are forwarded to the hiring client for
-                    review.
+                    Shortlisted profiles are forwarded to the hiring client for
+                    final review.
                   </p>
                 </div>
               </li>
@@ -883,7 +945,7 @@
                 <div class="step-body">
                   <p class="step-title">Interview invitation</p>
                   <p class="step-desc">
-                    Shortlisted applicants are invited to an interview.
+                    Selected applicants are invited to the next interview stage.
                   </p>
                 </div>
               </li>
@@ -897,79 +959,26 @@
             </p>
             <ul class="perks">
               <li class="perk">
-                <span class="perk-icon" aria-hidden="true">
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                </span>
-                A polished portfolio with recent, relevant work
+                <span class="perk-icon" aria-hidden="true">✓</span>
+                Clear design skills and tool experience
               </li>
               <li class="perk">
-                <span class="perk-icon" aria-hidden="true">
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                </span>
+                <span class="perk-icon" aria-hidden="true">✓</span>
                 Strong typography, layout, and visual hierarchy
               </li>
               <li class="perk">
-                <span class="perk-icon" aria-hidden="true">
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                </span>
+                <span class="perk-icon" aria-hidden="true">✓</span>
                 Clear thinking about brand, audience, and goals
               </li>
               <li class="perk">
-                <span class="perk-icon" aria-hidden="true">
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                </span>
-                Reliable communication and craft
+                <span class="perk-icon" aria-hidden="true">✓</span>
+                Portfolio or work samples, when available
               </li>
             </ul>
           </section>
         </aside>
       </div>
 
-      <!-- Footer -->
       <footer class="footer">
         <div class="footer-brand">
           <div
@@ -989,7 +998,6 @@
       </footer>
     </div>
 
-    <!-- Hidden iframe used as form submission target so the user stays on the page -->
     <iframe
       class="hidden-frame"
       name="submission_target"
@@ -1016,6 +1024,7 @@
         function setFieldValidity(input, valid, customMessage) {
           var field = input.closest(".field");
           if (!field) return;
+
           if (valid) {
             field.classList.remove("invalid");
           } else {
@@ -1030,6 +1039,11 @@
         function validateField(input) {
           var value = (input.value || "").trim();
 
+          if (!value && input.id === "portfolio") {
+            setFieldValidity(input, true);
+            return true;
+          }
+
           if (!value) {
             setFieldValidity(input, false);
             return false;
@@ -1043,15 +1057,15 @@
             }
           }
 
-          if (input.type === "url") {
-            try {
-              var u = new URL(value);
-              if (!/^https?:$/.test(u.protocol)) {
-                setFieldValidity(input, false);
-                return false;
-              }
-            } catch (e) {
-              setFieldValidity(input, false);
+          if (input.id === "portfolio" && value) {
+            var cleaned = value.trim();
+
+            if (cleaned.includes(" ") || !cleaned.includes(".")) {
+              setFieldValidity(
+                input,
+                false,
+                "Please enter a valid portfolio link or leave this field empty.",
+              );
               return false;
             }
           }
@@ -1060,6 +1074,7 @@
             var num = parseFloat(value);
             var min = input.min !== "" ? parseFloat(input.min) : -Infinity;
             var max = input.max !== "" ? parseFloat(input.max) : Infinity;
+
             if (Number.isNaN(num) || num < min || num > max) {
               setFieldValidity(input, false);
               return false;
@@ -1081,17 +1096,19 @@
         function validateAll() {
           var inputs = form.querySelectorAll("input, textarea");
           var ok = true;
+
           inputs.forEach(function (input) {
             if (!validateField(input)) ok = false;
           });
+
           return ok;
         }
 
-        // Live validation: clear errors as user types
         form.querySelectorAll("input, textarea").forEach(function (input) {
           input.addEventListener("blur", function () {
             if ((input.value || "").trim() !== "") validateField(input);
           });
+
           input.addEventListener("input", function () {
             var field = input.closest(".field");
             if (field && field.classList.contains("invalid")) {
@@ -1110,19 +1127,21 @@
           isSubmitting = false;
           submitBtn.classList.remove("loading");
           submitBtn.disabled = false;
+
           if (submitTimeout) {
             clearTimeout(submitTimeout);
             submitTimeout = null;
           }
         }
 
-        // The hidden iframe loads once on page init; subsequent loads occur after form submit
         var iframeReady = false;
+
         iframe.addEventListener("load", function () {
           if (!iframeReady) {
             iframeReady = true;
             return;
           }
+
           if (isSubmitting) {
             resetSubmittingState();
             showSuccess();
@@ -1137,20 +1156,19 @@
 
           if (!validateAll()) {
             e.preventDefault();
+
             var firstInvalid = form.querySelector(
               ".field.invalid input, .field.invalid textarea",
             );
+
             if (firstInvalid) firstInvalid.focus();
             return;
           }
 
-          // Allow native submission to the hidden iframe target.
           isSubmitting = true;
           submitBtn.classList.add("loading");
           submitBtn.disabled = true;
 
-          // Safety net: in case the iframe load event does not fire
-          // (very long network), still complete the flow after a timeout.
           submitTimeout = setTimeout(function () {
             if (isSubmitting) {
               resetSubmittingState();
@@ -1161,9 +1179,11 @@
 
         resetBtn.addEventListener("click", function () {
           form.reset();
-          form.querySelectorAll(".field.invalid").forEach(function (f) {
-            f.classList.remove("invalid");
+
+          form.querySelectorAll(".field.invalid").forEach(function (field) {
+            field.classList.remove("invalid");
           });
+
           successPanel.classList.remove("visible");
           formContent.style.display = "";
           window.scrollTo({ top: 0, behavior: "smooth" });
