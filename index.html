@@ -6,7 +6,7 @@
     <title>Graphic Designer Application | Recruitment Portal</title>
     <meta
       name="description"
-      content="Submit your application for the Graphic Designer role. Share your experience, skills, and optional portfolio with our recruitment team."
+      content="Submit your application for the Graphic Designer role. Share your experience, skills, CV, and optional portfolio with our recruitment team."
     />
     <link
       rel="icon"
@@ -329,6 +329,11 @@
         min-height: 120px;
         resize: vertical;
         line-height: 1.55;
+      }
+
+      input[type="file"] {
+        padding: 11px 14px;
+        background: #fff;
       }
 
       .field.invalid .input,
@@ -727,8 +732,8 @@
         <h1>Graphic Designer <span class="accent">Application</span></h1>
         <p>
           Submit your application for the Graphic Designer role. Please provide
-          accurate contact details, relevant design experience, key skills, and
-          optional portfolio or work sample links.
+          accurate contact details, relevant design experience, key skills, your
+          CV, and optional portfolio or work sample links.
         </p>
       </section>
 
@@ -738,7 +743,8 @@
             <div class="card-header">
               <h2 class="card-title">Apply for this role</h2>
               <p class="card-subtitle">
-                It takes about 3 minutes. Portfolio is optional but recommended.
+                It takes about 3 minutes. CV upload is required. Portfolio is
+                optional but recommended.
               </p>
             </div>
 
@@ -746,6 +752,7 @@
               id="applicationForm"
               action="https://n8n.srv1619357.hstgr.cloud/webhook/graphic-designer-application"
               method="POST"
+              enctype="multipart/form-data"
               target="submission_target"
               novalidate
             >
@@ -863,6 +870,24 @@
                 </div>
               </div>
 
+              <div class="field">
+                <label class="field-label" for="cv">
+                  CV / Resume <span class="req" aria-hidden="true">*</span>
+                </label>
+                <input
+                  class="input"
+                  id="cv"
+                  name="CV"
+                  type="file"
+                  accept=".pdf,.doc,.docx"
+                  required
+                />
+                <div class="form-hint">
+                  Upload your CV or resume as PDF, DOC, or DOCX.
+                </div>
+                <div class="field-error">Please upload your CV or resume.</div>
+              </div>
+
               <div class="submit-row">
                 <p class="legal">
                   By submitting, you agree to be contacted regarding this
@@ -916,7 +941,7 @@
                   <p class="step-title">Submit your details</p>
                   <p class="step-desc">
                     Fill out this short form with your contact info, experience,
-                    skills, and optional work samples.
+                    skills, CV, and optional work samples.
                   </p>
                 </div>
               </li>
@@ -925,7 +950,7 @@
                 <div class="step-body">
                   <p class="step-title">Application review</p>
                   <p class="step-desc">
-                    Your skills, experience, and submitted information are
+                    Your skills, experience, CV, and submitted information are
                     reviewed for role fit.
                   </p>
                 </div>
@@ -961,6 +986,10 @@
               <li class="perk">
                 <span class="perk-icon" aria-hidden="true">✓</span>
                 Clear design skills and tool experience
+              </li>
+              <li class="perk">
+                <span class="perk-icon" aria-hidden="true">✓</span>
+                Uploaded CV or resume for client review
               </li>
               <li class="perk">
                 <span class="perk-icon" aria-hidden="true">✓</span>
@@ -1044,6 +1073,37 @@
             return true;
           }
 
+          if (input.type === "file") {
+            if (!input.files || input.files.length === 0) {
+              setFieldValidity(
+                input,
+                false,
+                "Please upload your CV or resume.",
+              );
+              return false;
+            }
+
+            var file = input.files[0];
+            var allowedExtensions = [".pdf", ".doc", ".docx"];
+            var fileName = file.name.toLowerCase();
+
+            var isAllowed = allowedExtensions.some(function (ext) {
+              return fileName.endsWith(ext);
+            });
+
+            if (!isAllowed) {
+              setFieldValidity(
+                input,
+                false,
+                "Please upload a PDF, DOC, or DOCX file.",
+              );
+              return false;
+            }
+
+            setFieldValidity(input, true);
+            return true;
+          }
+
           if (!value) {
             setFieldValidity(input, false);
             return false;
@@ -1106,6 +1166,7 @@
 
         form.querySelectorAll("input, textarea").forEach(function (input) {
           input.addEventListener("blur", function () {
+            if (input.type === "file") return;
             if ((input.value || "").trim() !== "") validateField(input);
           });
 
@@ -1114,6 +1175,10 @@
             if (field && field.classList.contains("invalid")) {
               validateField(input);
             }
+          });
+
+          input.addEventListener("change", function () {
+            validateField(input);
           });
         });
 
@@ -1174,7 +1239,7 @@
               resetSubmittingState();
               showSuccess();
             }
-          }, 8000);
+          }, 10000);
         });
 
         resetBtn.addEventListener("click", function () {
